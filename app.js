@@ -731,7 +731,7 @@ timelineCanvas.addEventListener('pointerup', () => {
 });
 
 $('del').onclick = () => {
-  if (keyframes.length <= 2) return;
+  if (keyframes.length <= 1) return;
   keyframes.splice(keyframes.indexOf(selectedKeyframe), 1);
   selectedKeyframe = keyframes[0];
   refreshEditorAndRender();
@@ -1024,7 +1024,7 @@ $('pfile').onchange = async (e) => {
 
   try {
     const data = JSON.parse(await file.text());
-    if (data.app !== 'vowel-tract' || !Array.isArray(data.kfs) || data.kfs.length < 2) {
+    if (data.app !== 'vowel-tract' || !Array.isArray(data.kfs) || data.kfs.length < 1) {
       throw new Error('Invalid project format');
     }
 
